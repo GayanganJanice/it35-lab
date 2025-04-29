@@ -7,6 +7,7 @@ import {
   IonList, 
   IonMenuButton, 
   IonPage, 
+  IonSearchbar,
   IonTitle, 
   IonToolbar 
 } from '@ionic/react';
@@ -23,6 +24,8 @@ const Search: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen color="light">
+        <IonSearchbar />
+       
         <IonList inset={true}>
           <IonItem>
             <IonLabel>Pokémon Yellow</IonLabel>
