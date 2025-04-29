@@ -2,36 +2,16 @@ import {
   IonButtons,
   IonContent, 
   IonHeader, 
+  IonItem, 
+  IonLabel, 
+  IonList, 
   IonMenuButton, 
   IonPage, 
   IonTitle, 
-  IonToolbar,
-  IonSearchbar,
-  IonList,
-  IonItem,
-  IonLabel
+  IonToolbar 
 } from '@ionic/react';
-import { useState } from 'react';
 
 const Search: React.FC = () => {
-  const [results, setResults] = useState<string[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleInput = (event: CustomEvent) => {
-    const query = event.detail.value;
-    setSearchTerm(query);
-
-    // Simulate search logic
-    if (query && query.trim() !== '') {
-      const mockResults = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'].filter(item =>
-        item.toLowerCase().includes(query.toLowerCase())
-      );
-      setResults(mockResults);
-    } else {
-      setResults([]);
-    }
-  };
-
   return (
     <IonPage>
       <IonHeader>
@@ -42,15 +22,23 @@ const Search: React.FC = () => {
           <IonTitle>Search</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonSearchbar debounce={1000} onIonInput={handleInput} />
-
-        <IonList>
-          {results.map((result, index) => (
-            <IonItem key={index}>
-              <IonLabel>{result}</IonLabel>
-            </IonItem>
-          ))}
+      <IonContent fullscreen color="light">
+        <IonList inset={true}>
+          <IonItem>
+            <IonLabel>Pokémon Yellow</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Mega Man X</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>The Legend of Zelda</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Pac-Man</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Super Mario World</IonLabel>
+          </IonItem>
         </IonList>
       </IonContent>
     </IonPage>
@@ -58,3 +46,4 @@ const Search: React.FC = () => {
 };
 
 export default Search;
+
